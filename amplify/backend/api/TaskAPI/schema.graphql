@@ -1,0 +1,17 @@
+type User @model {
+  id: ID!
+  name: String!
+  todos: [Todo] @connection(name: "Todouser")
+}
+type Todo @model {
+  id: ID!
+  desc: String!
+  body: String!
+  todo: User @connection(name: "Todouser")
+  catagories: [Catagory] @connection(name: "todocatagory")
+}
+type Catagory @model {
+  id: ID!
+  name: String
+  todos: Todo @connection(name: "todocatagory")
+}

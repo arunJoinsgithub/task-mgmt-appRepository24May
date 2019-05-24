@@ -1,0 +1,109 @@
+# this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetTodo($id: ID!) {
+  getTodo(id: $id) {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+query ListTodos(
+  $filter: ModelTodoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+    nextToken
+  }
+}
+query GetCatagory($id: ID!) {
+  getCatagory(id: $id) {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
+query ListCatagorys(
+  $filter: ModelCatagoryFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCatagorys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      todos {
+        id
+        desc
+        body
+      }
+    }
+    nextToken
+  }
+}

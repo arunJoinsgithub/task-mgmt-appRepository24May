@@ -1,0 +1,160 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateTodo {
+  onCreateTodo {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+subscription OnUpdateTodo {
+  onUpdateTodo {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+subscription OnDeleteTodo {
+  onDeleteTodo {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+subscription OnCreateCatagory {
+  onCreateCatagory {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnUpdateCatagory {
+  onUpdateCatagory {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
+subscription OnDeleteCatagory {
+  onDeleteCatagory {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}

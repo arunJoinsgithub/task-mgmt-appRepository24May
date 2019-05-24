@@ -1,0 +1,19 @@
+{
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "task-mgmt-app-test-20190524192343-authRole",
+            "UnauthRoleArn": "arn:aws:iam::711922954182:role/task-mgmt-app-test-20190524192343-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::711922954182:role/task-mgmt-app-test-20190524192343-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "task-mgmt-app-test-20190524192343-deployment",
+            "UnauthRoleName": "task-mgmt-app-test-20190524192343-unauthRole",
+            "StackName": "task-mgmt-app-test-20190524192343",
+            "StackId": "arn:aws:cloudformation:us-west-2:711922954182:stack/task-mgmt-app-test-20190524192343/59595130-7e2b-11e9-a2e1-028572da108e"
+        },
+        "categories": {
+            "auth": {
+                "cognito330dd597": {}
+            }
+        }
+    }
+}

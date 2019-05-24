@@ -1,0 +1,160 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateUser($input: CreateUserInput!) {
+  createUser(input: $input) {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    id
+    name
+    todos {
+      items {
+        id
+        desc
+        body
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateTodo($input: CreateTodoInput!) {
+  createTodo(input: $input) {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+mutation UpdateTodo($input: UpdateTodoInput!) {
+  updateTodo(input: $input) {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+mutation DeleteTodo($input: DeleteTodoInput!) {
+  deleteTodo(input: $input) {
+    id
+    desc
+    body
+    todo {
+      id
+      name
+      todos {
+        nextToken
+      }
+    }
+    catagories {
+      items {
+        id
+        name
+      }
+      nextToken
+    }
+  }
+}
+mutation CreateCatagory($input: CreateCatagoryInput!) {
+  createCatagory(input: $input) {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
+mutation UpdateCatagory($input: UpdateCatagoryInput!) {
+  updateCatagory(input: $input) {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
+mutation DeleteCatagory($input: DeleteCatagoryInput!) {
+  deleteCatagory(input: $input) {
+    id
+    name
+    todos {
+      id
+      desc
+      body
+      todo {
+        id
+        name
+      }
+      catagories {
+        nextToken
+      }
+    }
+  }
+}
