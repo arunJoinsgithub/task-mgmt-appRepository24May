@@ -1,0 +1,56 @@
+@import './colors';
+
+/** Custom Styles for Material Theme */
+
+h1.mat-dialog-title,
+h2.mat-dialog-title,
+h3.mat-dialog-title {
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+mat-table.stripe mat-row:nth-child(even) {
+    background-color: mat-color($mat-grey, 50);
+}
+
+.mat-cell {
+    word-wrap: break-word;
+    // IE and Firefox: break-all is used as fallback for break-word
+    word-break: break-all;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.mat-cell,
+.mat-header-cell {
+    padding: 4px;
+}
+
+/**
+ * Table IE 11 issue
+ * https://github.com/angular/material2/issues/11470
+ */
+mat-cell, mat-header-cell, mat-footer-cell {
+    &::after {
+        content: '';
+        font-size: 0;
+        min-height: inherit;
+    }
+}
+
+/** Dark menu panel */
+.dark-theme.mat-menu-panel {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: map-get($mat-blue-gray, 800);
+}
+
+.dark-theme.mat-tab-nav-bar {
+    .mat-tab-links {
+        background-color: map-get($mat-blue-gray, 800);
+    }
+
+    .mat-tab-link:not(:disabled) {
+        opacity: 1;
+    }
+}

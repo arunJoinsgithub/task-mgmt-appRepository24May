@@ -1,0 +1,77 @@
+<mat-toolbar color="primary" class="mat-elevation-z1" style="align-items: flex-end">
+  <span></span>
+  <span fxFlex></span>
+  <a type="button" mat-icon-button routerLink="/MyAccount" routerLinkActive="active"
+     matTooltip="MyAccount" matTooltipPosition="below">
+      <mat-icon>person</mat-icon>
+  </a>
+  <a type="button" mat-icon-button routerLink="/contact-us" routerLinkActive="active"
+     matTooltip="Contact Us" matTooltipPosition="below">
+      <mat-icon>contact_support</mat-icon>
+  </a>
+  <button type="button" mat-icon-button (click)="logout()" matTooltip="Logout"
+          matTooltipPosition="below">
+      <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+<nav *ngIf="navBarList" mat-tab-nav-bar class="dark-theme mat-elevation-z1" color="primary">
+  <ng-container *ngFor="let navItem of navBarList;">
+      <ng-container *ngIf="!navItem.hidden">
+          <a mat-tab-link *ngIf="!navItem.subMenu; else subMenuTemplate;"
+             [routerLink]="['/' + navItem.path]" [active]="rl?.isActive"
+             routerLinkActive #rl="routerLinkActive">
+              <mat-icon>
+                  {{ navItem.icon }}
+              </mat-icon>
+              <span fxHide.xs>
+                  {{ navItem.name }}
+              </span>
+          </a>
+          <ng-template #subMenuTemplate>
+              <ng-container *ngIf="!navItem.hidden">
+                  <a mat-tab-link [matMenuTriggerFor]="subMenuPanel"
+                     [active]="router.isActive('/' + navItem.path, false)">
+                      <mat-icon>{{ navItem.icon }}</mat-icon>
+                      <span fxHide.xs> {{ navItem.name }}</span>
+                      <mat-icon>arrow_drop_down</mat-icon>
+                  </a>
+                  <mat-menu class="dark-theme" #subMenuPanel="matMenu" xPosition="before" [overlapTrigger]="false">
+                      <ng-container *ngFor="let subNavItem of navItem.subMenu">
+                          <a mat-menu-item *ngIf="!subNavItem.hidden" [ngClass]="{ 'active' : rlsm.isActive }"
+                             [routerLink]="'/' + (subNavItem.params ? [subNavItem.path, subNavItem.params] : [subNavItem.path])"
+                             routerLinkActive #rlsm="routerLinkActive" [routerLinkActiveOptions]="{ exact: true }">
+                              <mat-icon>
+                                  {{ subNavItem.icon }}
+                              </mat-icon>
+                              <span>
+                                  {{ subNavItem.name }}
+                              </span>
+                          </a>
+                      </ng-container>
+                  </mat-menu>
+              </ng-container>
+          </ng-template>
+      </ng-container>
+  </ng-container>
+</nav>
+
+<main>
+  <!-- Page Title -->
+  <h2 *ngIf="currentPageNavObject" class="page-title" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+      <!--<mat-icon>-->
+      <!--{{ currentPageNavObject.pageIcon || currentPageNavObject.icon }}-->
+      <!--</mat-icon>-->
+      <span>
+          {{ currentPageNavObject.pageName || currentPageNavObject.name }}
+      </span>
+      <ng-container *ngIf="currentPageNavObject.subMenu?.length > 0">
+          <span>
+              &nbsp;›&nbsp;
+          </span>
+          <span>
+              {{ currentPageNavObject.subMenu[0].pageName || currentPageNavObject.subMenu[0].name }}
+          </span>
+      </ng-container>
+  </h2>
+  <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,62 @@
+
+<div class="content">
+  <p class="page-description">
+     My Task List
+  </p>
+  <div class="place-order">
+      <a type="button" mat-raised-button color="accent" routerLink="/todos">
+          Add Task
+      </a>
+  </div>
+  <div>
+      <h2 class="text-center">
+          My Todos
+      </h2>
+      <mat-table [dataSource]="myDataSource" class="stripe mat-elevation-z1">
+          <!-- Date Column -->
+          <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef>
+                  Date
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  {{ element.date }}
+              </mat-cell>
+          </ng-container>
+
+          <!-- Order Number Column -->
+          <ng-container matColumnDef="TodoID">
+              <mat-header-cell *matHeaderCellDef>
+                 Todo ID
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  <a routerLink="/todos">
+                      {{ element.todoID }}
+                  </a>
+              </mat-cell>
+          </ng-container>
+
+          
+          <ng-container matColumnDef="Desc">
+              <mat-header-cell *matHeaderCellDef>
+                  Description
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  {{ element.desc }}
+              </mat-cell>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef>
+                  Status
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                  {{ element.status }}
+              </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+  </div>
+</div>
